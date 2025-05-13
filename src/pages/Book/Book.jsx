@@ -1,13 +1,15 @@
 import React from 'react';
+import { FaStarHalfStroke } from "react-icons/fa6";
+
 
 const Book = ({data}) => {
     // 
-    const {bookName,image,author} = data;
+    const {bookName,image,author,rating,category} = data;
 
     return (
-       <div className="card bg-base-100 w-96 shadow-sm">
-  <figure className='p-3'>
-    <img className=''
+       <div className="border card bg-base-100 w-96 shadow-sm p-6">
+  <figure className='p-4 bg-gray-200 w-2/3 mx-auto rounded-lg'>
+    <img className='h-[166px]'
       src={image}
       alt="Shoes" />
   </figure>
@@ -18,8 +20,9 @@ const Book = ({data}) => {
     </h2>
     <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
     <div className="card-actions justify-end">
-      <div className="badge badge-outline">Fashion</div>
-      <div className="badge badge-outline">Products</div>
+      <div className="badge badge-outline">{category}</div>
+      <div className="badge badge-outline">{rating}<FaStarHalfStroke />
+</div>
     </div>
   </div>
 </div>
