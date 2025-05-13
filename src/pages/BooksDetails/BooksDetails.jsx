@@ -1,41 +1,33 @@
 import React from 'react';
 import { useLoaderData, useParams } from 'react-router';
+import { addTStoredDB } from '../../utility/addToDb';
 
 const BooksDetails = () => {
 
     const {id} = useParams();
     const bookId= parseInt(id);
-    // console.log(id);
+ 
     const data = useLoaderData();
-    // console.log(data);
+ 
     const singleBook = data.find(book => book.bookId === bookId);
     
-    // console.log(singleBook);
+ 
     const {bookName,image,author,category,review,tags,yearOfPublishing,rating,publisher,totalPages
-} = singleBook;
-    // ,author,rating,category,review,tags,yearOfPublishing
+} = singleBook || {};
+
+const handleMarkAsRead = id => {
+    // store with id
+    // Where to store
+    // array or collection
+    // if Books already exist then show a alert
+    // if Book not exist then push in array
+    // console.log(id);
+    addTStoredDB(id)
+    }
+    
 
     return (
-//        <div className="card lg:card-side bg-base-100 shadow-sm mt-10 mb-10">
-//   <figure className="h-4/6 w-[425px] mt-20 mb-20 border-2 border-red-500">
-//     <img className='p-10 bg-blue-200'
-//       src={image}
-//       alt="Album" />
-//   </figure>
-//   <div className="card-body border-4 ml-5 border-red-500 mt-20 mb-20">
-//     <h2 className="text-5xl font-bold">{bookName}</h2>
-//     <p className='text-2xl'>By: <span className='text-xl text-shadow-amber-950 italic'>{author}</span></p>
-//     <div className='border-t-1 border-dashed mt-5'></div>
-
-//     <p className='text-2xl'>{category}</p>
-//     <div className='border-t-1 border-dashed mt-5'></div>
-//      <p className="max-h-[3em] overflow-auto leading-[1.5em]"> <span className='text-green-400 font-semibold underline'>Review:</span> {review}</p>
-
-//     <div className="card-actions justify-end">
-//       <button className="btn btn-primary">Listen</button>
-//     </div>
-//   </div>
-// </div>
+        
 
 <div className='flex justify-between items-center gap-5'>
     <div>
@@ -80,14 +72,14 @@ const BooksDetails = () => {
         <div className='flex justify-start items-center gap-5 mt-5'>
 
   <div className="card-actions justify-end">
-    <button className="p-4.5 rounded-xl border border-gray-400 transition-all duration-300 hover:bg-gray-100 hover:scale-105 hover:border-[#50B1C9]">
-      Read
+    <button onClick={()=>handleMarkAsRead(id)} className="p-4.5 rounded-xl border border-gray-400 transition-all duration-300 hover:bg-gray-100 hover:scale-105 hover:border-[#50B1C9]">
+      Mark As Read
     </button>
   </div>
 
   <div>
     <button className="bg-[#50B1C9] text-white p-4.5 rounded-xl transition-all duration-300 hover:bg-[#3a94ab] hover:scale-105">
-      Wishlist
+      Add To Wishlist
     </button>
   </div>
 
