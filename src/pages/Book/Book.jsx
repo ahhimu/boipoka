@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 
 const Book = ({data}) => {
     // 
-    const {bookName, bookId,image,author,rating,category,review,tags,yearOfPublishing} = data;
+    const {bookName, bookId,image,author,rating,category,tags,yearOfPublishing} = data;
 
     return (
       

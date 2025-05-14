@@ -23,4 +23,4 @@ const addTStoredDB =(id)=>{
     }
 }
 
-export {addTStoredDB}
+export {addTStoredDB,getStroedBook}
