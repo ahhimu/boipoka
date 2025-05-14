@@ -39,8 +39,8 @@ const handleSort = (type)=>{
 
     return (
         <div>
-        <details className="dropdown">
-  <summary className="btn m-1">Sort By - {sort?sort:""}</summary>
+        <details className="dropdown flex items-center justify-center">
+  <summary className="btn m-1 bg-[#23BE0A] text-white">Sort By - {sort?sort:""}</summary>
   <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
     <li><a onClick={()=>handleSort("Pages")}>Pages</a></li>
     <li><a onClick={()=>handleSort("Ratings")}>Ratings</a></li>
@@ -55,7 +55,7 @@ const handleSort = (type)=>{
 
     <TabPanel>
       {/* <h2>Any content 1</h2> */}
-     <div className='mb-10 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+     <div className='mb-10 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-5'>
          {
         readList.map(bok => <Book key={bok.bookId} data={bok}></Book>)
       }
